@@ -5,8 +5,8 @@ from xml.dom import minidom
 
 import socket
 
-from seoanalyzer.http import http
-from seoanalyzer.page import Page
+from http1 import http
+from page import Page
 
 class Website():
     def __init__(self, base_url, sitemap):

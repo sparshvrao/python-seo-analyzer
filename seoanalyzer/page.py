@@ -9,8 +9,8 @@ from string import punctuation
 from urllib.parse import urlsplit
 from urllib3.exceptions import HTTPError
 
-from seoanalyzer.http import http
-from seoanalyzer.stemmer import stem
+from http1 import http
+from stemmer import stem
 
 # This list of English stop words is taken from the "Glasgow Information
 # Retrieval Group". The original list can be found at

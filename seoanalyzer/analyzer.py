@@ -2,7 +2,7 @@ import json
 import time
 
 from operator import itemgetter
-from seoanalyzer.website import Website
+from website import Website
 
 def analyze(url, sitemap_url=None):
     start_time = time.time()
