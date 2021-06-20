@@ -4,10 +4,12 @@ import argparse
 import inspect
 import json
 import os
+import webbrowser
 
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
 from analyzer import analyze
+
 
 
 def main(args=None):
@@ -33,6 +35,14 @@ def main(args=None):
             template = env.get_template('index.html')
             output_from_parsed_template = template.render(result=output)
             print(output_from_parsed_template)
+            f=open("seoanalyzer/templates/indexer.html",'w')
+            f.write(output_from_parsed_template)
+            f.close()
+            # chrome_path="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe %s"
+            # webbrowser.register('chrome', None,webbrowser.BackgroundBrowser(chrome_path))
+            filename = 'file:///'+os.getcwd()+'/seoanalyzer/templates/' + 'indexer.html'
+            print(webbrowser._browsers)
+            webbrowser.open_new(filename)
         elif args.output_format == 'json':
             print(json.dumps(output, indent=4, separators=(',', ': ')))
     else:

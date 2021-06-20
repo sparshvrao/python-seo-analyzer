@@ -24,11 +24,8 @@
 			<h1>python-seo-analyzer results</h1>
 		</div> -->
 
-		{%if result['fatal_error']%}
-		<p>There was a fatal error when trying to format the output file as a webpage. Confirm that there is an output.json file in the directory. If not, you can reference the 
-			<a href="https://github.com/sethblack/python-seo-analyzer">python-seo-analyzer documentation</a></p>
-			{% else %}
-			<p>total time: {{result['total_time']|round(2)}} seconds </p>
+		
+			<p>total time: 1.54 seconds </p>
 			<!-- <div>
 				<h2>go to:</h2>
 				<ul>
@@ -38,16 +35,9 @@
 				</ul>
 			</div> -->
 
-			{% if result['errors']%}
-			<h2>errors:</h2>
-			<ul>
-				{% for e in result['errors'] %}
-				<li>{{e}}</li>
-				{% endfor %}
-			</ul>
-			{% endif %}
+			
 
-			{% if result['pages'] %}
+			
 			<h2 id="page-section">page analysis:</h2>
 			<input type="button" value="hide all notices " onclick="toggleDetail()" class="btn btn-info" id="ebutton">
 
@@ -63,26 +53,26 @@
 				</thead>
 
 				<tbody>
-				{% for page in result['pages']%}
-				{% set outer_loop = loop %}
-				<tr onclick="fullerrors({{ outer_loop.index }})">
-					<td><i class="material-icons" id="i{{ outer_loop.index }}">keyboard_arrow_down</i></td>
-					<td><a href="{{ page['url'] }}" target ="_blank">{{page['url']}}</a></td>
-					<td>{{page['word_count']}}</td>
-					<td>{{page["warnings"]|length}}</td>
+				
+				
+				<tr onclick="fullerrors(1)">
+					<td><i class="material-icons" id="i1">keyboard_arrow_down</i></td>
+					<td><a href="https://handwriter-sparsh.herokuapp.com/" target ="_blank">https://handwriter-sparsh.herokuapp.com/</a></td>
+					<td>407</td>
+					<td>7</td>
 				</tr>
-				<tr id="{{ outer_loop.index }}" class="error-detail">
-					<td colspan="4"><p>{{page["title"]}}</p><p>{{page["description"]}}</p><ul>{% for err in page["warnings"] %}<li>{{err|e}}</li>{% endfor %}</ul></td>
+				<tr id="1" class="error-detail">
+					<td colspan="4"><p>handwriter</p><p>it converts any text into the given handwriting font</p><ul><li>Description is too short (less than 140 characters): it converts any text into the given handwriting font</li><li>Missing og:image</li><li>Anchor missing title tag: https://www.calligraphr.com/en/</li><li>Anchor missing title tag: https://www.1001freefonts.com/handwriting-fonts.php</li><li>Anchor missing title tag: https://www.quantumenterprises.co.uk/handwriting-fonts/fontvault.htm</li><li>Anchor missing title tag: https://www.instagram.com/sparsh_v_rao/</li><li>Anchor missing title tag: https://www.linkedin.com/in/sparsh-rao-36383812b/</li></ul></td>
 				</tr>
-				{% endfor %}
+				
 			</tbody>
 			</table>
 			</div>
 
-			{% endif %}
+			
 
 
-			{% if result['keywords'] %}
+			
 			<h2 id="keyword-section">keyword analysis:</h2>
 			<div class="table-responsive">
 			<table id = "keywords" class="table table-striped">
@@ -93,18 +83,66 @@
 					</tr>
 				</thead>
 				<tbody>
-				{% for key in result['keywords']%}
+				
 				<tr>
-					<td> {{ key['word'] }} </td>
-					<td> {{ key['count'] }} </td>
+					<td> handwrit </td>
+					<td> 13 </td>
 				</tr>
 
-				{% endfor %}
+				
+				<tr>
+					<td> imag </td>
+					<td> 9 </td>
+				</tr>
+
+				
+				<tr>
+					<td> font </td>
+					<td> 8 </td>
+				</tr>
+
+				
+				<tr>
+					<td> letter </td>
+					<td> 6 </td>
+				</tr>
+
+				
+				<tr>
+					<td> space </td>
+					<td> 6 </td>
+				</tr>
+
+				
+				<tr>
+					<td> in the </td>
+					<td> 6 </td>
+				</tr>
+
+				
+				<tr>
+					<td> us </td>
+					<td> 5 </td>
+				</tr>
+
+				
+				<tr>
+					<td> text </td>
+					<td> 5 </td>
+				</tr>
+
+				
+				<tr>
+					<td> option </td>
+					<td> 5 </td>
+				</tr>
+
+				
 			</tbody>
 			</table>
 		</div>
-			{% endif %}
-			{% endif %}
+			
+			
 		</div>
 
 		<script type='text/javascript'>
